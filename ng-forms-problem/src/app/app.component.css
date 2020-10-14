@@ -1,0 +1,16 @@
+.form-wrapper {
+    width: 500px;
+}
+.form-control {
+    margin: 15px;
+}
+label {
+    display: inline-block;
+    width: 25%;
+}
+.error {
+    color: red;
+}
+.submitted {
+    color: green;
+}

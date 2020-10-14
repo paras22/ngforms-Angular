@@ -1,0 +1,33 @@
+<div class="form-wrapper">
+    <h4> User Information</h4>
+
+    <form class="user-form" [formGroup]="userForm">
+        <div class="form-control">
+            <label for="firstName">First name *</label>
+            <input [formControl]="firstName" type="text" name="firstName" class="form-input" id="firstName">
+            <span class="error" *ngIf="(firstName.dirty || firstName.touched) && firstName.errors?.required">required</span>
+        </div>
+        <div class="form-control">
+            <label for="lastName">Last name *</label>
+            <input [formControl]="lastName" type="text" name="lastName" class="form-input" id="lastName">
+            <span class="error" *ngIf="(lastName.dirty || lastName.touched) && lastName.errors?.required">required</span>
+        </div>
+        <div class="form-control">
+            <label for="age">Age *</label>
+            <input [formControl]="age" type="text" name="age" class="form-input" id="age">
+            <span class="error" *ngIf="(age.dirty || age.touched) && age.errors?.required">required</span>
+            <span class="error" *ngIf="(age.dirty || age.touched) && age.errors?.pattern">value must be a number</span>
+        </div>
+        <div class="form-control">
+            <label for="email">Email *</label>
+            <input [formControl]="email" type="email" name="email" class="form-input" id="email">
+            <span class="error" *ngIf="(email.dirty || email.touched) && email.errors?.required">required</span>
+            <span class="error" *ngIf="(email.dirty || email.touched) && email.errors?.pattern">Please provide a valid Email</span>
+            <!-- TODO 4: add email input field -->
+        </div>
+        <div class="form-control">
+            <button type="submit" (click)="submitForm()" class="btn btn-submit" [disabled]="!userForm.valid"> Submit Form </button>
+        </div>
+        <div *ngIf="submitted" class="submitted">Your form has been submitted</div>
+    </form>
+</div>
